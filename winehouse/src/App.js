@@ -21,6 +21,15 @@ function App() {
       )
   }, [])
 
+  const bestBuyer = items.reduce((acc, e) => {
+    return {
+      [e.cliente]: e.valorTotal,
+      ...acc
+    }
+  }, {})
+
+  console.log(bestBuyer)
+  
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
